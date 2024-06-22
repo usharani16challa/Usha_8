@@ -1,0 +1,29 @@
+class Solution { 
+  public : 
+  int numberOfSubarrays(vector<int>& nums,int k ) {
+    return numberOfSubarraysAtMost(nums, k ) -
+           numberOfSubarraydAtMost(nums, k - 1);
+    }
+
+  private :
+  int numberOfSubarrysAtMost(vector<int>& nums, int k ) {
+    int ans = 0;
+
+    for ( int 1 = 0, r= 0; r <= nums.size();)
+      if ( k >= 0) {
+        ans += r - 1;
+        if ( r == nums.size())
+          break;
+        if(nums[r] & 1)
+          --k;
+        ++r;
+        } else {
+          if ( nums[r] & 1)
+            ++k;
+        ++1;
+        }
+
+      return ans ;
+    }
+  };
+    
